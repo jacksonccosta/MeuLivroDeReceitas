@@ -1,4 +1,5 @@
-﻿using MyRecipeBook.Communication.Requests;
+﻿using MyRecipeBook.Application.Services;
+using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Communication.Responses;
 using MyRecipeBook.Exceptions;
 
@@ -8,9 +9,16 @@ public class RegisterUserUseCase
 {
     public ResponseRegisteredUserJson Execute(RequestRegisterUserJson request)
     {
+        var autoMapper = new AutoMapper.MapperConfiguration(options =>
+        {
+            options.AddProfile(new AutoMapping());
+        }).CreateMapper();
+
         Validate(request);
-        //Mapear a request em uma entidade
-        //Criptografar senha
+
+        var user = autoMapper.Map<Domain.User>(request);
+        user.Password = Encripter.Encrypt(request.Password);
+
         //Salvar no banco de dados
 
         return new ResponseRegisteredUserJson()
