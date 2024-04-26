@@ -1,13 +1,17 @@
 ﻿using MyRecipeBook.Application.Services;
 using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Communication.Responses;
+using MyRecipeBook.Domain.Repositories;
 using MyRecipeBook.Exceptions;
 
 namespace MyRecipeBook.Application.UseCases;
 
 public class RegisterUserUseCase
 {
-    public ResponseRegisteredUserJson Execute(RequestRegisterUserJson request)
+    private readonly IUserReadOnlyRepository _userReadOnly;
+    private readonly IUserWriteOnlyRepository _userWriteOnly;
+
+    public async Task<ResponseRegisteredUserJson> Execute(RequestRegisterUserJson request)
     {
         var autoMapper = new AutoMapper.MapperConfiguration(options =>
         {
@@ -19,7 +23,7 @@ public class RegisterUserUseCase
         var user = autoMapper.Map<Domain.User>(request);
         user.Password = Encripter.Encrypt(request.Password);
 
-        //Salvar no banco de dados
+        await _userWriteOnly.Add(user);
 
         return new ResponseRegisteredUserJson()
         {
