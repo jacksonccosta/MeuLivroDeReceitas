@@ -1,5 +1,8 @@
-﻿namespace MyRecipeBook.Domain;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
+namespace MyRecipeBook.Domain;
+
+[Table("Users", Schema = "MLR")]
 public class User : EntityBase
 {
     public string Name { get; set; } = string.Empty;

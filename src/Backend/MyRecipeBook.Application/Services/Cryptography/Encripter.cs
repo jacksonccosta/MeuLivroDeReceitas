@@ -3,19 +3,20 @@ using System.Text;
 
 namespace MyRecipeBook.Application.Services;
 
-public static class Encripter
+public class Encripter(string additionalKey)
 {
-    public static string Encrypt(string str)
+    private readonly string _additionalKey = additionalKey;
+
+    public string Encrypt(string str)
     {
-        var additinalKey = "A1B2C3D4E5";
-        var newStr = $"{str}{additinalKey}";
+        var newStr = $"{str}{_additionalKey}";
         var bytes = Encoding.UTF8.GetBytes(newStr);
         var hashBytes = SHA512.HashData(bytes);
 
         return StrBytes(hashBytes);
     }
 
-    private static string StrBytes(byte[] bytes)
+    private string StrBytes(byte[] bytes)
     {
         var sb = new StringBuilder();
 

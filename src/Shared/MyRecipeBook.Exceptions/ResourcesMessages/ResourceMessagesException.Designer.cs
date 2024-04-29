@@ -61,6 +61,15 @@ namespace MyRecipeBook.Exceptions.ResourcesMessages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email already registered.
+        /// </summary>
+        public static string EMAIL_ALREADY_REGISTRRED {
+            get {
+                return ResourceManager.GetString("EMAIL_ALREADY_REGISTRRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid email.
         /// </summary>
         public static string EMAIL_INVALID {
