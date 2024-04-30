@@ -19,7 +19,7 @@ public class RegisterUserUseCase(IUserReadOnlyRepository userReadOnly, IUserWrit
 
     public async Task<ResponseRegisteredUserJson> Execute(RequestRegisterUserJson request)
     {
-        Validate(request);
+        await Validate(request);
 
         var user = _mapper.Map<Domain.User>(request);
         user.Password = _passwordEncrypter.Encrypt(request.Password);
@@ -29,7 +29,7 @@ public class RegisterUserUseCase(IUserReadOnlyRepository userReadOnly, IUserWrit
 
         return new ResponseRegisteredUserJson()
         {
-            Name = request.Name
+            Name = user.Name
         };
     }
 

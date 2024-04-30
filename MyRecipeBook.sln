@@ -27,9 +27,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyRecipeBook.Communication"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyRecipeBook.Exceptions", "src\Shared\MyRecipeBook.Exceptions\MyRecipeBook.Exceptions.csproj", "{62106824-D678-490F-A8E5-89A0515E90BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validators.Test", "tests\Validators.Test\Validators.Test.csproj", "{2B1A96EE-0EED-47AC-8EA3-FFE1E093D867}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validators.Test", "tests\Validators.Test\Validators.Test.csproj", "{2B1A96EE-0EED-47AC-8EA3-FFE1E093D867}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTestUtilities", "tests\CommonTestUtilities\CommonTestUtilities.csproj", "{356DDDCB-B02F-4C60-8C22-4E830DB64FEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTestUtilities", "tests\CommonTestUtilities\CommonTestUtilities.csproj", "{356DDDCB-B02F-4C60-8C22-4E830DB64FEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases.Test", "tests\UseCases.Test\UseCases.Test.csproj", "{7CA95836-32E1-4373-8D60-42CFE7CF0090}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{356DDDCB-B02F-4C60-8C22-4E830DB64FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{356DDDCB-B02F-4C60-8C22-4E830DB64FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{356DDDCB-B02F-4C60-8C22-4E830DB64FEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CA95836-32E1-4373-8D60-42CFE7CF0090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CA95836-32E1-4373-8D60-42CFE7CF0090}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CA95836-32E1-4373-8D60-42CFE7CF0090}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CA95836-32E1-4373-8D60-42CFE7CF0090}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +92,7 @@ Global
 		{62106824-D678-490F-A8E5-89A0515E90BA} = {1014424C-97C6-4A21-A155-7CF8ADA4E465}
 		{2B1A96EE-0EED-47AC-8EA3-FFE1E093D867} = {52B0BBDA-CA07-4AD1-AC5E-49B47DA45D1A}
 		{356DDDCB-B02F-4C60-8C22-4E830DB64FEF} = {52B0BBDA-CA07-4AD1-AC5E-49B47DA45D1A}
+		{7CA95836-32E1-4373-8D60-42CFE7CF0090} = {52B0BBDA-CA07-4AD1-AC5E-49B47DA45D1A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {41BA4A52-8CA7-48D5-A569-6AF0822836BB}
