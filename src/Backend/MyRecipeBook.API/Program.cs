@@ -31,4 +31,14 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+MigrateDatabase();
+
 app.Run();
+
+void MigrateDatabase()
+{
+    var connetionString = builder.Configuration.ConnectionString();
+    var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope(); ;
+
+    DataBaseMigration.Migrate(connetionString, serviceScope.ServiceProvider);
+}
