@@ -70,6 +70,15 @@ namespace MyRecipeBook.Exceptions.ResourcesMessages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The email cannot empyt.
+        /// </summary>
+        public static string EMAIL_EMPYT {
+            get {
+                return ResourceManager.GetString("EMAIL_EMPYT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid email.
         /// </summary>
         public static string EMAIL_INVALID {

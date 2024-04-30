@@ -120,6 +120,9 @@
   <data name="EMAIL_ALREADY_REGISTRRED" xml:space="preserve">
     <value>E-mail já cadastrado.</value>
   </data>
+  <data name="EMAIL_EMPYT" xml:space="preserve">
+    <value>E-mail não pode ser vazio</value>
+  </data>
   <data name="EMAIL_INVALID" xml:space="preserve">
     <value>E-mail inválido</value>
   </data>
