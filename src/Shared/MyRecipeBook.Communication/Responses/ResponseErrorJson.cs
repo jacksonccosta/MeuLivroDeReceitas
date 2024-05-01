@@ -3,7 +3,7 @@
 public class ResponseErrorJson
 {
     public IList<string> Errors { get; set; }
-    public string Error { get; }
+    public string? Error { get; }
 
     public ResponseErrorJson(IList<string> errors) => Errors = errors!;
 
