@@ -3,7 +3,6 @@ using FluentAssertions;
 using MyRecipeBook.Exceptions.ResourcesMessages;
 using System.Globalization;
 using System.Net;
-using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
 
