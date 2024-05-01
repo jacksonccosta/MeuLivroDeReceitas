@@ -47,6 +47,19 @@ public class RegisterUserUseCaseTest
             .Where(e => e.ErrorMessages.Count == 1 && e.ErrorMessages.Contains(ResourceMessagesException.NAME_EMPTY));
     }
 
+    [Fact]
+    public async Task Error_Email_Empyt()
+    {
+        var request = RequestRegisterUserJsonBuilder.Build();
+        request.Email = string.Empty;
+
+        var useCase = CreateUseCase();
+
+        Func<Task> act = async () => await useCase.Execute(request);
+
+        (await act.Should().ThrowAsync<ErrorOnValidationException>())
+            .Where(e => e.ErrorMessages.Count == 1 && e.ErrorMessages.Contains(ResourceMessagesException.EMAIL_EMPYT));
+    }
     private RegisterUserUseCase CreateUseCase(string? email = null)
     {
         var useReadOnlyBuilder = new UserReadOnlyRepositoryBuilder();
