@@ -60,7 +60,7 @@ public class RegisterUserUseCaseTest
         (await act.Should().ThrowAsync<ErrorOnValidationException>())
             .Where(e => e.ErrorMessages.Count == 1 && e.ErrorMessages.Contains(ResourceMessagesException.EMAIL_EMPYT));
     }
-    private RegisterUserUseCase CreateUseCase(string? email = null)
+    private static RegisterUserUseCase CreateUseCase(string? email = null)
     {
         var useReadOnlyBuilder = new UserReadOnlyRepositoryBuilder();
         var userWriteOnly = UserWriteOnlyRepositoryBuilder.Build();

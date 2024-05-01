@@ -41,9 +41,9 @@ void MigrateDatabase()
         return;
 
     var connetionString = builder.Configuration.ConnectionString();
-    var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope(); ;
+    var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
 
     DataBaseMigration.Migrate(connetionString, serviceScope.ServiceProvider);
 }
 
-public partial class Program { }
+public static partial class Program { }

@@ -5,13 +5,13 @@ public class ResponseErrorJson
     public IList<string> Errors { get; set; }
     public string Error { get; }
 
-    public ResponseErrorJson(IList<string> errors) => Errors = errors;
+    public ResponseErrorJson(IList<string> errors) => Errors = errors!;
 
     public ResponseErrorJson(string error)
     {
         Errors = new List<string>
         {
-            error
+            error!
         };
     }
 

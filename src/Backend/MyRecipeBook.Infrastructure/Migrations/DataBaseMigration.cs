@@ -13,6 +13,11 @@ public class DataBaseMigration
         MigrationDataBase(serviceProvider);
     }
 
+    protected DataBaseMigration()
+    {
+        
+    }
+
     private static void EnsureDataBaseCreated(string connectionString)
     {
         var connectionStringBuilder = new SqlConnectionStringBuilder(connectionString);

@@ -16,7 +16,7 @@ public class Encripter(string additionalKey)
         return StrBytes(hashBytes);
     }
 
-    private string StrBytes(byte[] bytes)
+    private static string StrBytes(byte[] bytes)
     {
         var sb = new StringBuilder();
 
