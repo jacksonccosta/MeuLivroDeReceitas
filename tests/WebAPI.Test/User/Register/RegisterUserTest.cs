@@ -16,7 +16,6 @@ public class RegisterUserTest(CustomWebApplicationFactory factory) : IClassFixtu
     public async Task Success()
     {
         var request = RequestRegisterUserJsonBuilder.Build();
-
         var response = await _httpClient.PostAsJsonAsync("User", request);
         response.StatusCode.Should().Be(HttpStatusCode.Created);
 
