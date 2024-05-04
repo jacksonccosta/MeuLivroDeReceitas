@@ -1,6 +1,6 @@
 ﻿namespace MyRecipeBook.Exceptions;
 
-public class ErrorOnValidationException(IList<string> erroMessages) : MyRecipeBookException
+public class ErrorOnValidationException(IList<string> errorMessages) : MyRecipeBookException(string.Empty)
 {
-    public IList<string> ErrorMessages { get; set; } = erroMessages;
+    public IList<string> ErrorMessages { get; set; } = errorMessages;
 }

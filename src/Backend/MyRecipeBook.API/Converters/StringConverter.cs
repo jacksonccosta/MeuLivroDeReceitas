@@ -20,4 +20,3 @@ public partial class StringConverter : JsonConverter<string>
     [GeneratedRegex(@"\s+")]
     private static partial Regex RemoveExtraWhiteSpaces();
 }
-}

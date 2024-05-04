@@ -121,18 +121,21 @@
     <value>E-mail já cadastrado.</value>
   </data>
   <data name="EMAIL_EMPYT" xml:space="preserve">
-    <value>E-mail não pode ser vazio</value>
+    <value>E-mail não pode ser vazio.</value>
   </data>
   <data name="EMAIL_INVALID" xml:space="preserve">
-    <value>E-mail inválido</value>
+    <value>E-mail inválido.</value>
+  </data>
+  <data name="EMAIL_OR_PASSWORD_INVALID" xml:space="preserve">
+    <value>Email ou senha inválido.</value>
   </data>
   <data name="NAME_EMPTY" xml:space="preserve">
-    <value>O nome não pode ser vazio</value>
+    <value>O nome não pode ser vazio.</value>
   </data>
   <data name="PASSWORD_INVALID" xml:space="preserve">
-    <value>Senha inválida. O campo senha deve conter eplo meno 6 caractres</value>
+    <value>Senha inválida. O campo senha deve conter eplo meno 6 caractres.</value>
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
-    <value>Erro desconhecido</value>
+    <value>Erro desconhecido.</value>
   </data>
 </root>

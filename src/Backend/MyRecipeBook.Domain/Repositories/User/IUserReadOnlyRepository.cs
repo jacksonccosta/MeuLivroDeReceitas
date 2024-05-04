@@ -3,5 +3,5 @@
 public interface IUserReadOnlyRepository
 {
     public Task<bool> ExistActiveUserWithEmail(string email);
-    public Task<User?> GetUserByEmailAndPassword(string email, string password);
+    public Task<User?> GetByEmailAndPassword(string email, string password);
 }
