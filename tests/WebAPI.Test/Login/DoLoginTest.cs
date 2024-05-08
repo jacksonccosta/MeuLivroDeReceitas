@@ -4,19 +4,24 @@ using MyRecipeBook.Communication;
 using MyRecipeBook.Exceptions.ResourcesMessages;
 using System.Globalization;
 using System.Net;
-using System.Net.Http.Json;
 using System.Text.Json;
 
 namespace WebAPI.Test.Login;
 
-public class DoLoginTest(CustomWebApplicationFactory factory) : IClassFixture<CustomWebApplicationFactory>
+public class DoLoginTest : MyRecipeBookClassFixture
 {
     private readonly string method = "login";
-    private readonly HttpClient _httpClient = factory.CreateClient();
 
-    private readonly string _name = factory.GetName();
-    private readonly string _email = factory.GetEmail();
-    private readonly string _password = factory.GetPassword();
+    private readonly string _name;
+    private readonly string _email;
+    private readonly string _password;
+
+    public DoLoginTest(CustomWebApplicationFactory factory) : base(factory)
+    {
+        _name = factory.GetName();
+        _email = factory.GetEmail();
+        _password = factory.GetPassword();
+    }
 
     [Fact]
     public async Task Success()
@@ -27,7 +32,7 @@ public class DoLoginTest(CustomWebApplicationFactory factory) : IClassFixture<Cu
             Password = _password
         };
 
-        var response = await _httpClient.PostAsJsonAsync(method, request);
+        var response = await DoPost(method, request);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
 
         await using var responseBody = await response.Content.ReadAsStreamAsync();
@@ -41,14 +46,9 @@ public class DoLoginTest(CustomWebApplicationFactory factory) : IClassFixture<Cu
     [ClassData(typeof(CultureInlineDataTest))]
     public async Task Error_Login_Invalid(string culture)
     {
-        var request = RequestLoginJsonBuilder.Build();
+        var request = RequestLoginJsonBuilder.Build();        
 
-        if (_httpClient.DefaultRequestHeaders.Contains("Accept-Language"))
-            _httpClient.DefaultRequestHeaders.Remove("Accept-Language");
-
-        _httpClient.DefaultRequestHeaders.Add("Accept-Language", culture);
-
-        var response = await _httpClient.PostAsJsonAsync(method, request);
+        var response = await DoPost(method, request, culture);
         response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
 
         await using var responseBody = await response.Content.ReadAsStreamAsync();

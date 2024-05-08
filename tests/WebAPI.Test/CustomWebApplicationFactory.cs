@@ -40,10 +40,6 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
             });
     }
 
-    public string GetName() => _user.Name;
-    public string GetEmail() => _user.Email;
-    public string GetPassword() => _password;
-
     private void StartDataBase(MyRecipeBookDbContext dbContext)
     {
         (_user, _password) = UserBuilder.Build();
@@ -51,4 +47,8 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
         dbContext.Users.Add(_user);
         dbContext.SaveChanges();
     }
+
+    public string GetName() => _user.Name;
+    public string GetEmail() => _user.Email;
+    public string GetPassword() => _password;
 }

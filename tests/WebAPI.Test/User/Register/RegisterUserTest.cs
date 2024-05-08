@@ -3,21 +3,19 @@ using FluentAssertions;
 using MyRecipeBook.Exceptions.ResourcesMessages;
 using System.Globalization;
 using System.Net;
-using System.Net.Http.Json;
 using System.Text.Json;
 
 namespace WebAPI.Test;
 
-public class RegisterUserTest(CustomWebApplicationFactory factory) : IClassFixture<CustomWebApplicationFactory>
+public class RegisterUserTest(CustomWebApplicationFactory factory) : MyRecipeBookClassFixture(factory)
 {
-    private readonly string method = "User";
-    private readonly HttpClient _httpClient = factory.CreateClient();
+    private readonly string method = "user";
 
     [Fact]
     public async Task Success()
     {
         var request = RequestRegisterUserJsonBuilder.Build();
-        var response = await _httpClient.PostAsJsonAsync(method, request);
+        var response = await DoPost(method, request);
         response.StatusCode.Should().Be(HttpStatusCode.Created);
 
         await using var responseBody = await response.Content.ReadAsStreamAsync();
@@ -34,12 +32,7 @@ public class RegisterUserTest(CustomWebApplicationFactory factory) : IClassFixtu
         var request = RequestRegisterUserJsonBuilder.Build();
         request.Name = string.Empty;
 
-        if (_httpClient.DefaultRequestHeaders.Contains("Accept-Language"))
-            _httpClient.DefaultRequestHeaders.Remove("Accept-Language");
-
-        _httpClient.DefaultRequestHeaders.Add("Accept-Language", culture);
-
-        var response = await _httpClient.PostAsJsonAsync(method, request);
+        var response = await DoPost(method, request, culture);
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
 
         await using var responseBody = await response.Content.ReadAsStreamAsync();
