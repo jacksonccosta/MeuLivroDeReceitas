@@ -4,7 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MyRecipeBook.Domain;
 using MyRecipeBook.Domain.Repositories;
+using MyRecipeBook.Domain.Services;
 using MyRecipeBook.Infrastructure.Security;
+using MyRecipeBook.Infrastructure.Service;
 using System.Reflection;
 
 namespace MyRecipeBook.Infrastructure;
@@ -14,6 +16,7 @@ public static class DependencyInjectionExtension
     public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         AddRepositories(services);
+        AddLoggedUser(services);
         AddTokens(services, configuration);
 
         if (configuration.IsUnitTestEnviroment())
@@ -60,4 +63,6 @@ public static class DependencyInjectionExtension
         services.AddScoped<IAccessTokenGenerator>(option => new JwtTokenGenerator(expirationTimeMinutes, signingKey!));
         services.AddScoped<IAccessTokenValidator>(option => new JwtTokenValidator(signingKey!));
     }
+
+    private static void AddLoggedUser(IServiceCollection services) => services.AddScoped<ILoggedUser, LoggedUser>();
 }
