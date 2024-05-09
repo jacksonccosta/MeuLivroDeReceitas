@@ -13,6 +13,7 @@ public static class DependencyInjectionExtension
     public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         AddRepositories(services);
+        AddTokens(services, configuration);
 
         if (configuration.IsUnitTestEnviroment())
             return;
@@ -30,6 +31,7 @@ public static class DependencyInjectionExtension
             db.UseSqlServer(connectionString);
         });
     }
+
     private static void AddRepositories(IServiceCollection services)
     {
         services.AddScoped<IUserReadOnlyRepository, UserRepository>();
@@ -47,5 +49,13 @@ public static class DependencyInjectionExtension
             .WithGlobalConnectionString(connectionString)
             .ScanIn(Assembly.Load("MyRecipeBook.Infrastructure")).For.All();
         });
+    }
+
+    private static void AddTokens(IServiceCollection services, IConfiguration configuration)
+    {
+        var expirationTimeMinutes = configuration.GetValue<uint>("Settings:Jwt:ExpirationTimeMinutes");
+        var signingKey = configuration.GetValue<string>("Settings:Jwt:SigninKey");
+
+        services.AddScoped<IAccessTokenGenerator>(option => new JwtTokenGenerator(expirationTimeMinutes, signingKey!));
     }
 }
