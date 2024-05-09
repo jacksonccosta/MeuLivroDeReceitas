@@ -106,6 +106,15 @@ namespace MyRecipeBook.Exceptions.ResourcesMessages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Token not find.
+        /// </summary>
+        public static string NO_TOKEN {
+            get {
+                return ResourceManager.GetString("NO_TOKEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid password. The password field must contain at least 6 characters.
         /// </summary>
         public static string PASSWORD_INVALID {
@@ -120,6 +129,15 @@ namespace MyRecipeBook.Exceptions.ResourcesMessages {
         public static string UNKNOW_ERROR {
             get {
                 return ResourceManager.GetString("UNKNOW_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User does not have permission to access this resource..
+        /// </summary>
+        public static string USER_WITHOUT_PERMISSION_ACCESS_RESOURCE {
+            get {
+                return ResourceManager.GetString("USER_WITHOUT_PERMISSION_ACCESS_RESOURCE", resourceCulture);
             }
         }
     }

@@ -132,10 +132,16 @@
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>The name cannot empyt</value>
   </data>
+  <data name="NO_TOKEN" xml:space="preserve">
+    <value>Token not find</value>
+  </data>
   <data name="PASSWORD_INVALID" xml:space="preserve">
     <value>Invalid password. The password field must contain at least 6 characters</value>
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Unknown error</value>
+  </data>
+  <data name="USER_WITHOUT_PERMISSION_ACCESS_RESOURCE" xml:space="preserve">
+    <value>User does not have permission to access this resource.</value>
   </data>
 </root>
