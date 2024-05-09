@@ -25,7 +25,9 @@ public class DoLoginUseCaseTest
         });
 
         result.Should().NotBeNull();
+        result.Tokens.Should().NotBeNull();
         result.Name.Should().NotBeNullOrWhiteSpace().And.Be(user.Name);
+        result.Tokens.AccessToken.Should().NotBeNullOrEmpty();
     }
 
     [Fact]
@@ -45,11 +47,12 @@ public class DoLoginUseCaseTest
     {
         var passwordEncripter = PasswordEncripterBuilder.Build();
         var userReadOnlyRepositoryBuilder = new UserReadOnlyRepositoryBuilder();
+        var accessTokenGenerator = JwtTokenGeneratorBuilder.Build();
 
         if (user is not null)
             userReadOnlyRepositoryBuilder.GetByEmailAndPassword(user);
 
 
-        return new DoLoginUseCase(userReadOnlyRepositoryBuilder.Build(), passwordEncripter);
+        return new DoLoginUseCase(userReadOnlyRepositoryBuilder.Build(), passwordEncripter, accessTokenGenerator);
     }
 }
