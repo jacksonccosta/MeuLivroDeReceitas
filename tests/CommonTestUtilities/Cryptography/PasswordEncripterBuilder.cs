@@ -1,8 +1,8 @@
-﻿using MyRecipeBook.Application.Services;
+﻿using MyRecipeBook.Infrastructure.Security;
 
 namespace CommonTestUtilities;
 
 public class PasswordEncripterBuilder
 {
-    public static Encripter Build() => new("9Y[bWX<11ua}");
+    public static Sha512Encript Build() => new("9Y[bWX<11ua}");
 }

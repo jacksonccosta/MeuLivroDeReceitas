@@ -1,6 +1,4 @@
-﻿using MyRecipeBook.Application.Services;
-using MyRecipeBook.Communication;
-using MyRecipeBook.Communication.Responses;
+﻿using MyRecipeBook.Communication;
 using MyRecipeBook.Domain;
 using MyRecipeBook.Domain.Repositories;
 using MyRecipeBook.Exceptions;
@@ -8,11 +6,11 @@ using MyRecipeBook.Exceptions;
 namespace MyRecipeBook.Application;
 
 public class DoLoginUseCase(IUserReadOnlyRepository userReadOnlyRepository, 
-                            Encripter encripter, 
+                            IPassqordEncript encripter, 
                             IAccessTokenGenerator accessTokenGenerator) : IDoLoginUseCase
 {
     private readonly IUserReadOnlyRepository _userReadOnlyRepository = userReadOnlyRepository;
-    private readonly Encripter _encripter = encripter;
+    private readonly IPassqordEncript _encripter = encripter;
     private readonly IAccessTokenGenerator _accessTokenGenerator = accessTokenGenerator;
 
     public async Task<ResponseRegisteredUserJson> Execute(RequestLoginJson request)
