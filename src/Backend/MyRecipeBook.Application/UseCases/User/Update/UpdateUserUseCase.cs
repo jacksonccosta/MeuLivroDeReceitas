@@ -8,14 +8,14 @@ using MyRecipeBook.Exceptions.ResourcesMessages;
 
 namespace MyRecipeBook.Application;
 
-public class UpdateUseCase : IUpdateUseCase
+public class UpdateUserUseCase : IUpdateUseCase
 {
     private readonly ILoggedUser _loggedUser;
     private readonly IUserUpdateOnlyRepository _repository;
     private readonly IUserReadOnlyRepository _userReadOnlyRepository;
     private readonly IUnitOfWork _unitOfWork;
 
-    public UpdateUseCase(ILoggedUser loggedUser, IUserUpdateOnlyRepository repository, IUserReadOnlyRepository userReadOnlyRepository, IUnitOfWork unitOfWork)
+    public UpdateUserUseCase(ILoggedUser loggedUser, IUserUpdateOnlyRepository repository, IUserReadOnlyRepository userReadOnlyRepository, IUnitOfWork unitOfWork)
     {
         _loggedUser = loggedUser;
         _repository = repository;

@@ -26,7 +26,7 @@ public static class DependencyInjectionExtension
         services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
         services.AddScoped<IDoLoginUseCase, DoLoginUseCase>();
         services.AddScoped<IGetUserProfileUseCase, GetUserProfileUseCase>();
-        services.AddScoped<IUpdateUseCase, UpdateUseCase>();
+        services.AddScoped<IUpdateUseCase, UpdateUserUseCase>();
     }
     private static void AddPasswordEncrypter(IServiceCollection services, IConfiguration configuration)
     {
