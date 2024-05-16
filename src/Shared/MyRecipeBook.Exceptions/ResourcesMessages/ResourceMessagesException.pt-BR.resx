@@ -135,6 +135,9 @@
   <data name="NO_TOKEN" xml:space="preserve">
     <value>Token não encontrado.</value>
   </data>
+  <data name="PASSWORD_EMPTY" xml:space="preserve">
+    <value>Senha não pode ser vazio.</value>
+  </data>
   <data name="PASSWORD_INVALID" xml:space="preserve">
     <value>Senha inválida. O campo senha deve conter eplo meno 6 caractres.</value>
   </data>

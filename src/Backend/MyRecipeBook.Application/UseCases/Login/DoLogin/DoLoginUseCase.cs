@@ -6,11 +6,11 @@ using MyRecipeBook.Exceptions;
 namespace MyRecipeBook.Application;
 
 public class DoLoginUseCase(IUserReadOnlyRepository userReadOnlyRepository, 
-                            IPassqordEncript encripter, 
+                            IPasswordEncripter encripter, 
                             IAccessTokenGenerator accessTokenGenerator) : IDoLoginUseCase
 {
     private readonly IUserReadOnlyRepository _userReadOnlyRepository = userReadOnlyRepository;
-    private readonly IPassqordEncript _encripter = encripter;
+    private readonly IPasswordEncripter _encripter = encripter;
     private readonly IAccessTokenGenerator _accessTokenGenerator = accessTokenGenerator;
 
     public async Task<ResponseRegisteredUserJson> Execute(RequestLoginJson request)

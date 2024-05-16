@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MyRecipeBook.Infrastructure.Security;
 
-public class Sha512Encript(string additionalKey) : IPassqordEncript
+public class Sha512Encript(string additionalKey) : IPasswordEncripter
 {
     private readonly string _additionalKey = additionalKey;
 

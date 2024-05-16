@@ -135,6 +135,9 @@
   <data name="NO_TOKEN" xml:space="preserve">
     <value>Token not find</value>
   </data>
+  <data name="PASSWORD_EMPTY" xml:space="preserve">
+    <value>The password cannot empyt</value>
+  </data>
   <data name="PASSWORD_INVALID" xml:space="preserve">
     <value>Invalid password. The password field must contain at least 6 characters</value>
   </data>

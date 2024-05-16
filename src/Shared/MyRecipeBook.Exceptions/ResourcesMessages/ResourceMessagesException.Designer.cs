@@ -115,6 +115,15 @@ namespace MyRecipeBook.Exceptions.ResourcesMessages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The password cannot empyt.
+        /// </summary>
+        public static string PASSWORD_EMPTY {
+            get {
+                return ResourceManager.GetString("PASSWORD_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid password. The password field must contain at least 6 characters.
         /// </summary>
         public static string PASSWORD_INVALID {

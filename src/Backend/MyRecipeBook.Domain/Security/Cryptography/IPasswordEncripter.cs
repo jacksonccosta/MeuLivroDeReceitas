@@ -1,6 +1,6 @@
 ﻿namespace MyRecipeBook.Domain;
 
-public interface IPassqordEncript
+public interface IPasswordEncripter
 {
     string Encrypt(string str);
 }
