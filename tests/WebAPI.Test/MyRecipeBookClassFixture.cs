@@ -40,6 +40,7 @@ public class MyRecipeBookClassFixture(CustomWebApplicationFactory factory) : ICl
     {
         if (string.IsNullOrWhiteSpace(token))
             return;
+
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     }
 }

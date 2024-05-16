@@ -43,7 +43,7 @@ public class DoLoginUseCaseTest
             
     }
 
-    private static DoLoginUseCase CreateUseCase(User? user = null)
+    private static DoLoginUseCase CreateUseCase(MyRecipeBook.Domain.User? user = null)
     {
         var passwordEncripter = PasswordEncripterBuilder.Build();
         var userReadOnlyRepositoryBuilder = new UserReadOnlyRepositoryBuilder();
