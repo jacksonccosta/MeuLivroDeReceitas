@@ -3,6 +3,6 @@
 - Design Patterns
 - SOLID
 - Teste de unidade e Testes de Integração
-- WEbsockts
+- Websockts
 - Sonarcloud
 - Postman collections
